@@ -1,5 +1,6 @@
 import type { Cookie, Tier } from "@/lib/types";
-import { GRADE_COLOR_VAR, TIER_COLOR_VAR, TIER_ORDER } from "@/lib/constants";
+import { TIER_COLOR_VAR, TIER_ORDER } from "@/lib/constants";
+import CookieAvatar from "./CookieAvatar";
 
 export default function TierListView({
   cookies,
@@ -24,9 +25,9 @@ export default function TierListView({
   return (
     <div className="flex flex-col gap-3">
       {grouped.map((g) => (
-        <div key={g.tier} className="card-surface flex overflow-hidden rounded-xl">
+        <div key={g.tier} className="card-surface flex overflow-hidden rounded-2xl">
           <div
-            className="flex w-16 shrink-0 items-center justify-center font-display text-2xl font-black text-black"
+            className="flex w-16 shrink-0 items-center justify-center font-display text-2xl text-white"
             style={{ backgroundColor: TIER_COLOR_VAR[g.tier as Tier] }}
           >
             {g.tier}
@@ -34,11 +35,8 @@ export default function TierListView({
           <div className="flex flex-1 flex-wrap gap-3 p-3">
             {g.cookies.map((c) => (
               <div key={c.id} className="flex w-16 flex-col items-center text-center text-[0.68rem]">
-                <div
-                  className="mb-1 flex h-11 w-11 items-center justify-center rounded-full text-sm font-extrabold text-white"
-                  style={{ backgroundColor: GRADE_COLOR_VAR[c.grade] }}
-                >
-                  {c.nameKr[0]}
+                <div className="mb-1">
+                  <CookieAvatar cookie={c} size={44} />
                 </div>
                 <span className="text-ink-soft">{c.nameKr}</span>
               </div>

@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Cookie, SynergyId } from "@/lib/types";
 import { GRADE_SHORT_LABEL, GRADE_COLOR_VAR } from "@/lib/constants";
 import { SYNERGIES } from "@/data/synergies";
+import CookieAvatar from "./CookieAvatar";
 
 const MAX_SLOTS = 5;
 
@@ -54,11 +55,11 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="쿠키 검색..."
-            className="rounded-lg border border-border bg-bg-elevated px-3 py-2 text-sm text-ink placeholder:text-ink-faint focus:border-gold focus:outline-none"
+            className="rounded-xl border border-border bg-bg-elevated px-3 py-2 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none"
           />
           <button
             onClick={() => setSelectedIds([])}
-            className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-ink-soft hover:border-gold hover:text-gold"
+            className="rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-ink-soft hover:border-accent hover:text-accent"
           >
             팀 초기화
           </button>
@@ -70,14 +71,15 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
               <button
                 key={c.id}
                 onClick={() => toggle(c.id)}
-                className={`rounded-xl border-2 p-2 text-center text-xs font-semibold transition-colors ${
+                className={`flex flex-col items-center gap-1 rounded-2xl border-2 p-2 text-center text-xs font-semibold transition-all hover:scale-105 ${
                   isSelected
-                    ? "border-gold bg-gold-soft text-ink"
+                    ? "border-accent bg-accent-soft text-ink"
                     : "border-border bg-bg-elevated text-ink-soft hover:border-border-strong"
                 }`}
               >
+                <CookieAvatar cookie={c} size={40} />
                 <span
-                  className="mb-1 inline-block rounded px-1 py-0.5 text-[0.6rem] font-extrabold text-white"
+                  className="inline-block rounded-full px-1 py-0.5 text-[0.6rem] font-extrabold text-white"
                   style={{ backgroundColor: GRADE_COLOR_VAR[c.grade] }}
                 >
                   {GRADE_SHORT_LABEL[c.grade]}
@@ -89,7 +91,7 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
         </div>
       </div>
 
-      <div className="card-surface h-fit rounded-2xl p-4 lg:sticky lg:top-20">
+      <div className="card-surface h-fit rounded-3xl p-4 lg:sticky lg:top-20">
         <h3 className="mb-2 font-display text-base font-bold text-ink">내 팀</h3>
         <div className="mb-4 flex flex-col gap-1.5">
           {team.length === 0 ? (
@@ -100,10 +102,13 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
             team.map((c) => (
               <div
                 key={c.id}
-                className="flex items-center justify-between rounded-lg bg-gold-soft px-2.5 py-1.5 text-sm text-ink"
+                className="flex items-center justify-between rounded-xl bg-accent-soft px-2.5 py-1.5 text-sm text-ink"
               >
-                <span>{c.nameKr}</span>
-                <button onClick={() => toggle(c.id)} className="text-ink-faint hover:text-gold">
+                <span className="flex items-center gap-2">
+                  <CookieAvatar cookie={c} size={24} />
+                  {c.nameKr}
+                </span>
+                <button onClick={() => toggle(c.id)} className="text-ink-faint hover:text-accent">
                   ✕
                 </button>
               </div>
@@ -121,7 +126,7 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
                 <span className="w-12 shrink-0 text-xs font-bold" style={{ color: s.color }}>
                   {s.name}
                 </span>
-                <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-gold-soft">
+                <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-accent-soft">
                   <div
                     className="h-full rounded-full"
                     style={{ width: `${pct}%`, backgroundColor: s.color }}

@@ -1,4 +1,5 @@
 import type { Pet } from "@/lib/types";
+import { PET_IMAGE_URLS, PET_IMAGE_SOURCE } from "./petImages";
 
 export interface PetSystemNote {
   title: string;
@@ -20,11 +21,14 @@ export const PET_SYSTEM_NOTES: PetSystemNote[] = [
   },
 ];
 
+const IMAGE_MATCH_CAVEAT =
+  "이미지는 이름이 정확히 일치하는 문서를 찾지 못해 뜻이 가장 가까운 이름으로 매칭한 것입니다. 실제 게임 내 모습과 다를 수 있습니다.";
+
 /**
  * 출시 시점 펫은 총 54종으로 알려져 있으나, 개별 효과가 문서화된 펫은 이 중
  * 일부입니다. 나머지는 계속 조사 중입니다.
  */
-export const PETS: Pet[] = [
+const PETS_RAW: Pet[] = [
   {
     id: "마시멜로우 햄스터",
     nameKr: "마시멜로우 햄스터",
@@ -60,3 +64,14 @@ export const PETS: Pet[] = [
     effect: "아군 상태이상 저항 +10%",
   },
 ];
+
+export const PETS: Pet[] = PETS_RAW.map((p) => {
+  const image = PET_IMAGE_URLS[p.nameKr];
+  if (!image) return p;
+  return {
+    ...p,
+    image,
+    imageSource: PET_IMAGE_SOURCE,
+    notes: p.notes ? `${p.notes} ${IMAGE_MATCH_CAVEAT}` : IMAGE_MATCH_CAVEAT,
+  };
+});

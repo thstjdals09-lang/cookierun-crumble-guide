@@ -40,6 +40,9 @@ export interface Cookie {
   tierPve?: Tier;
   tierPvp?: Tier;
   sourceNote?: string;
+  /** Hotlinked portrait URL from a public source; omitted when none was found. */
+  image?: string;
+  imageSource?: string;
 }
 
 export interface Pet {
@@ -49,6 +52,8 @@ export interface Pet {
   grade?: Grade;
   effect: string;
   notes?: string;
+  image?: string;
+  imageSource?: string;
 }
 
 export interface GuideEntry {

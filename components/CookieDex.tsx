@@ -5,6 +5,7 @@ import type { Cookie, Grade, SynergyId } from "@/lib/types";
 import { GRADE_LABEL, GRADE_SHORT_LABEL, GRADE_COLOR_VAR } from "@/lib/constants";
 import { SYNERGIES } from "@/data/synergies";
 import SynergyTag from "./SynergyTag";
+import CookieAvatar from "./CookieAvatar";
 
 export default function CookieDex({ cookies }: { cookies: Cookie[] }) {
   const [query, setQuery] = useState("");
@@ -37,12 +38,12 @@ export default function CookieDex({ cookies }: { cookies: Cookie[] }) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="쿠키 이름 검색..."
-          className="rounded-lg border border-border bg-bg-elevated px-3 py-2 text-sm text-ink placeholder:text-ink-faint focus:border-gold focus:outline-none"
+          className="rounded-xl border border-border bg-bg-elevated px-3 py-2 text-sm text-ink placeholder:text-ink-faint focus:border-accent focus:outline-none"
         />
         <select
           value={grade}
           onChange={(e) => setGrade(e.target.value as Grade | "all")}
-          className="rounded-lg border border-border bg-bg-elevated px-3 py-2 text-sm text-ink focus:border-gold focus:outline-none"
+          className="rounded-xl border border-border bg-bg-elevated px-3 py-2 text-sm text-ink focus:border-accent focus:outline-none"
         >
           <option value="all">전체 등급</option>
           {(Object.keys(GRADE_LABEL) as Grade[]).map((g) => (
@@ -62,7 +63,7 @@ export default function CookieDex({ cookies }: { cookies: Cookie[] }) {
             className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
               synergy === s.id
                 ? "border-transparent text-white"
-                : "border-border text-ink-soft hover:border-gold hover:text-gold-light"
+                : "border-border text-ink-soft hover:border-accent hover:text-accent-dark"
             }`}
             style={synergy === s.id ? { backgroundColor: s.color } : undefined}
           >
@@ -79,14 +80,17 @@ export default function CookieDex({ cookies }: { cookies: Cookie[] }) {
             <button
               key={c.id}
               onClick={() => setSelected(c)}
-              className="card-surface rounded-2xl p-3 text-left transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]"
+              className="card-surface rounded-3xl p-3 text-left transition-transform hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[var(--shadow-accent)]"
             >
-              <span
-                className="mb-2 inline-block rounded px-1.5 py-0.5 text-[0.65rem] font-extrabold text-white"
-                style={{ backgroundColor: GRADE_COLOR_VAR[c.grade] }}
-              >
-                {GRADE_SHORT_LABEL[c.grade]}
-              </span>
+              <div className="mb-2 flex items-start justify-between">
+                <CookieAvatar cookie={c} size={48} />
+                <span
+                  className="inline-block rounded-full px-1.5 py-0.5 text-[0.65rem] font-extrabold text-white"
+                  style={{ backgroundColor: GRADE_COLOR_VAR[c.grade] }}
+                >
+                  {GRADE_SHORT_LABEL[c.grade]}
+                </span>
+              </div>
               <p className="font-display text-sm font-bold text-ink">{c.nameKr}</p>
               <p className="mb-2 text-xs text-ink-faint">{c.role ?? ""}</p>
               <div className="flex flex-wrap gap-1">
@@ -105,25 +109,28 @@ export default function CookieDex({ cookies }: { cookies: Cookie[] }) {
           onClick={() => setSelected(null)}
         >
           <div
-            className="card-surface w-full max-w-md rounded-2xl p-6"
+            className="card-surface w-full max-w-md rounded-3xl p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-3 flex items-start justify-between">
-              <div>
-                <span
-                  className="mb-1 inline-block rounded px-1.5 py-0.5 text-[0.65rem] font-extrabold text-white"
-                  style={{ backgroundColor: GRADE_COLOR_VAR[selected.grade] }}
-                >
-                  {GRADE_LABEL[selected.grade]}
-                </span>
-                <h2 className="font-display text-xl font-bold text-ink">{selected.nameKr}</h2>
-                <p className="text-sm text-ink-faint">
-                  {selected.nameEn ?? ""} {selected.role ? `· ${selected.role}` : ""}
-                </p>
+              <div className="flex items-start gap-3">
+                <CookieAvatar cookie={selected} size={64} />
+                <div>
+                  <span
+                    className="mb-1 inline-block rounded-full px-1.5 py-0.5 text-[0.65rem] font-extrabold text-white"
+                    style={{ backgroundColor: GRADE_COLOR_VAR[selected.grade] }}
+                  >
+                    {GRADE_LABEL[selected.grade]}
+                  </span>
+                  <h2 className="font-display text-xl font-bold text-ink">{selected.nameKr}</h2>
+                  <p className="text-sm text-ink-faint">
+                    {selected.nameEn ?? ""} {selected.role ? `· ${selected.role}` : ""}
+                  </p>
+                </div>
               </div>
               <button
                 onClick={() => setSelected(null)}
-                className="rounded-full bg-gold-soft px-2.5 py-1 text-sm text-ink hover:text-gold"
+                className="rounded-full bg-accent-soft px-2.5 py-1 text-sm text-ink hover:text-accent"
               >
                 ✕
               </button>

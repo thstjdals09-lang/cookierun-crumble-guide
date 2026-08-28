@@ -19,10 +19,10 @@ export default function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b-2 border-border bg-bg/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-3 sm:px-6">
-        <Link href="/" className="shrink-0 font-display text-lg font-bold tracking-tight">
-          <span className="gold-text">크럼블 도감</span>
+        <Link href="/" className="shrink-0 font-display text-xl">
+          🍪 <span className="accent-text">크럼블 도감</span>
         </Link>
 
         <nav className="scrollbar-thin flex flex-1 items-center gap-1 overflow-x-auto">
@@ -33,10 +33,10 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold transition-colors ${
+                className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-bold transition-all hover:scale-105 ${
                   active
-                    ? "bg-gold text-black"
-                    : "text-ink-soft hover:bg-gold-soft hover:text-gold-light"
+                    ? "bg-accent text-white shadow-[var(--shadow-accent)]"
+                    : "text-ink-soft hover:bg-accent-soft hover:text-accent-dark"
                 }`}
               >
                 {item.label}

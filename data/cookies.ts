@@ -1,4 +1,5 @@
 import type { Cookie } from "@/lib/types";
+import { COOKIE_IMAGE_URLS, COOKIE_IMAGE_SOURCE } from "./cookieImages";
 
 /**
  * 쿠키 로스터. 2026-08-27 패치(2차 대형 업데이트) 시점 기준, 커뮤니티 공개 자료를
@@ -325,4 +326,7 @@ const ROSTER_ONLY: Cookie[] = [
   }),
 ];
 
-export const COOKIES: Cookie[] = [...DETAILED, ...ROSTER_ONLY];
+export const COOKIES: Cookie[] = [...DETAILED, ...ROSTER_ONLY].map((c) => {
+  const image = COOKIE_IMAGE_URLS[c.nameKr];
+  return image ? { ...c, image, imageSource: COOKIE_IMAGE_SOURCE } : c;
+});

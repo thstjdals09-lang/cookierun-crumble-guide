@@ -17,22 +17,22 @@ export default function Home() {
   return (
     <div>
       <section className="mb-12 text-center">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-gold">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-accent">
           Cookie Run: Crumble
         </p>
         <h1 className="mb-4 font-display text-3xl font-black leading-tight text-ink sm:text-5xl">
-          <span className="gold-text">쿠키런: 크럼블</span> PVE·PVP 통합 공략
+          <span className="accent-text">쿠키런: 크럼블</span> PVE·PVP 통합 공략
         </h1>
         <p className="mx-auto max-w-2xl text-sm text-ink-soft sm:text-base">
           쿠키 도감부터 시너지 계산기, 티어리스트, 스테이지·보스 공략, 펫 도감, 패치노트까지 —
           공개된 정보를 모아 정리한 팬메이드 공략 허브입니다.
         </p>
-        <div className="luxury-divider mx-auto mt-8 max-w-md" />
+        <div className="fun-divider mx-auto mt-8 max-w-md" />
       </section>
 
       {latestPatch && (
-        <section className="card-surface mb-12 rounded-2xl p-5">
-          <p className="mb-1 text-xs font-semibold text-gold-light">
+        <section className="card-surface mb-12 rounded-3xl p-5">
+          <p className="mb-1 text-xs font-semibold text-accent-dark">
             최신 패치 · {latestPatch.date} · {latestPatch.version}
           </p>
           <h2 className="mb-2 font-display text-lg font-bold text-ink">{latestPatch.title}</h2>
@@ -41,7 +41,7 @@ export default function Home() {
               <li key={i}>{h}</li>
             ))}
           </ul>
-          <Link href="/patch-notes" className="mt-3 inline-block text-sm font-semibold text-gold hover:underline">
+          <Link href="/patch-notes" className="mt-3 inline-block text-sm font-semibold text-accent hover:underline">
             전체 패치노트 보기 →
           </Link>
         </section>
@@ -56,7 +56,7 @@ export default function Home() {
           <Link
             key={s.href}
             href={s.href}
-            className="card-surface rounded-2xl p-5 transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]"
+            className="card-surface rounded-3xl p-5 transition-transform hover:-translate-y-1 hover:shadow-[var(--shadow-accent)]"
           >
             <h3 className="mb-1 font-display text-base font-bold text-ink">{s.title}</h3>
             <p className="text-sm text-ink-soft">{s.desc}</p>

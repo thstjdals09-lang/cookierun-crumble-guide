@@ -12,16 +12,20 @@ export default function TierTabs({ cookies }: { cookies: Cookie[] }) {
       <div className="mb-4 flex gap-2">
         <button
           onClick={() => setMode("tierPve")}
-          className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
-            mode === "tierPve" ? "bg-gold text-black" : "border border-border text-ink-soft"
+          className={`rounded-full px-4 py-1.5 text-sm font-bold transition-all hover:scale-105 ${
+            mode === "tierPve"
+              ? "bg-accent text-white shadow-[var(--shadow-accent)]"
+              : "border-2 border-border text-ink-soft"
           }`}
         >
           PVE 스테이지 기준
         </button>
         <button
           onClick={() => setMode("tierPvp")}
-          className={`rounded-full px-4 py-1.5 text-sm font-semibold ${
-            mode === "tierPvp" ? "bg-gold text-black" : "border border-border text-ink-soft"
+          className={`rounded-full px-4 py-1.5 text-sm font-bold transition-all hover:scale-105 ${
+            mode === "tierPvp"
+              ? "bg-accent text-white shadow-[var(--shadow-accent)]"
+              : "border-2 border-border text-ink-soft"
           }`}
         >
           PVP 아레나 기준

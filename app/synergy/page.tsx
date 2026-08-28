@@ -22,14 +22,14 @@ export default function SynergyPage() {
 
       <SynergyCalculator cookies={COOKIES} />
 
-      <div className="luxury-divider my-12" />
+      <div className="fun-divider my-12" />
 
       <h2 className="font-display mb-4 text-xl font-bold text-ink">시너지 시스템이란?</h2>
       <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {SYNERGIES.map((s) => {
           const givers = COOKIES.filter((c) => c.gives.includes(s.id)).map((c) => c.nameKr);
           return (
-            <div key={s.id} className="card-surface rounded-2xl p-4">
+            <div key={s.id} className="card-surface rounded-3xl p-4">
               <div className="mb-2 flex items-center gap-2">
                 <SynergyTag id={s.id} />
                 <span className="text-xs text-ink-faint">{s.nameEn}</span>
@@ -45,7 +45,7 @@ export default function SynergyPage() {
 
       <div className="flex flex-col gap-3">
         {SYNERGY_NOTES.map((n) => (
-          <div key={n.title} className="card-surface rounded-2xl p-5">
+          <div key={n.title} className="card-surface rounded-3xl p-5">
             <h3 className="font-display mb-1.5 text-base font-bold text-ink">{n.title}</h3>
             <p className="text-sm text-ink-soft">{n.body}</p>
           </div>

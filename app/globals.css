@@ -1,55 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #0b0a08;
-  --color-bg-elevated: #17130f;
-  --color-bg-elevated-2: #201a13;
-  --color-ink: #f6ecd9;
-  --color-ink-soft: #b7a687;
-  --color-ink-faint: #7d715a;
-  --color-border: #37301f;
-  --color-border-strong: #5a4a28;
+  --color-bg: #fff8ee;
+  --color-bg-elevated: #ffffff;
+  --color-bg-elevated-2: #fff1db;
+  --color-ink: #4a3626;
+  --color-ink-soft: #8a7259;
+  --color-ink-faint: #b7a688;
+  --color-border: #ffe3b8;
+  --color-border-strong: #ffcb8a;
 
-  --color-gold: #d4af37;
-  --color-gold-light: #f4e2a8;
-  --color-gold-dark: #a97f24;
-  --color-gold-soft: rgba(212, 175, 55, 0.14);
+  --color-accent: #ff8c42;
+  --color-accent-light: #ffb877;
+  --color-accent-dark: #e8650f;
+  --color-accent-soft: rgba(255, 140, 66, 0.15);
 
-  --color-tier-s: #e8b84b;
-  --color-tier-a: #c98fef;
-  --color-tier-b: #6fa8ff;
-  --color-tier-c: #8a9199;
+  --color-tier-s: #ff6b81;
+  --color-tier-a: #ffb443;
+  --color-tier-b: #5fc9f8;
+  --color-tier-c: #a8b0c1;
 
-  --color-grade-common: #8f8f8f;
-  --color-grade-uncommon: #5fa86b;
-  --color-grade-rare: #4c8bf5;
-  --color-grade-sr: #a45ee5;
-  --color-grade-ssr: #e8b84b;
-  --color-grade-tssr: #ff5f5f;
+  --color-grade-common: #a3a3a3;
+  --color-grade-uncommon: #5fc16f;
+  --color-grade-rare: #4c94ff;
+  --color-grade-sr: #b26bff;
+  --color-grade-ssr: #ffc24b;
+  --color-grade-tssr: #ff5c7a;
 
-  --color-syn-pierce: #e74c3c;
-  --color-syn-chain: #f39c12;
-  --color-syn-volley: #2ecc71;
-  --color-syn-speed: #4c8bf5;
-  --color-syn-rapid: #a45ee5;
-  --color-syn-range: #2fbfa8;
-  --color-syn-duration: #e0863a;
+  --color-syn-pierce: #ff5b4d;
+  --color-syn-chain: #ffa733;
+  --color-syn-volley: #35c26a;
+  --color-syn-speed: #4c94ff;
+  --color-syn-rapid: #b26bff;
+  --color-syn-range: #2bc4b0;
+  --color-syn-duration: #ff9752;
 
-  --shadow-card: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
-  --shadow-gold: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 8px 24px -10px rgba(212, 175, 55, 0.25);
+  --shadow-card: 0 6px 18px -6px rgba(214, 130, 40, 0.22), 0 2px 6px rgba(74, 54, 38, 0.06);
+  --shadow-accent: 0 6px 16px -3px rgba(255, 140, 66, 0.5);
 }
 
-:root[data-theme="light"] {
-  --color-bg: #faf5e8;
-  --color-bg-elevated: #ffffff;
-  --color-bg-elevated-2: #f3ead2;
-  --color-ink: #2a2213;
-  --color-ink-soft: #6d5d3d;
-  --color-ink-faint: #97896a;
-  --color-border: #e6d7ac;
-  --color-border-strong: #d8c284;
-  --color-gold-soft: rgba(169, 127, 36, 0.12);
-  --shadow-card: 0 8px 24px -14px rgba(80, 60, 20, 0.25);
+:root[data-theme="dark"] {
+  --color-bg: #241a12;
+  --color-bg-elevated: #2f2317;
+  --color-bg-elevated-2: #3a2c1d;
+  --color-ink: #fff3e2;
+  --color-ink-soft: #d9c2a3;
+  --color-ink-faint: #a68f72;
+  --color-border: #4a3826;
+  --color-border-strong: #6b5236;
+
+  --color-accent: #ff9a52;
+  --color-accent-light: #ffc98a;
+  --color-accent-dark: #ffa45c;
+  --color-accent-soft: rgba(255, 154, 82, 0.18);
+
+  --shadow-card: 0 8px 22px -8px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 6px 18px -3px rgba(255, 154, 82, 0.4);
 }
 
 @theme inline {
@@ -62,10 +68,10 @@
   --color-border: var(--color-border);
   --color-border-strong: var(--color-border-strong);
 
-  --color-gold: var(--color-gold);
-  --color-gold-light: var(--color-gold-light);
-  --color-gold-dark: var(--color-gold-dark);
-  --color-gold-soft: var(--color-gold-soft);
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-accent-dark: var(--color-accent-dark);
+  --color-accent-soft: var(--color-accent-soft);
 
   --color-tier-s: var(--color-tier-s);
   --color-tier-a: var(--color-tier-a);
@@ -87,7 +93,7 @@
   --color-syn-range: var(--color-syn-range);
   --color-syn-duration: var(--color-syn-duration);
 
-  --font-serif-kr: var(--font-noto-serif-kr);
+  --font-display-kr: var(--font-jua);
   --font-sans-kr: var(--font-noto-sans-kr);
 }
 
@@ -96,10 +102,10 @@
 }
 
 html {
-  color-scheme: dark;
-}
-:root[data-theme="light"] {
   color-scheme: light;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
@@ -109,29 +115,28 @@ body {
 }
 
 ::selection {
-  background: var(--color-gold-soft);
-  color: var(--color-gold-light);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-dark);
 }
 
 .font-display {
-  font-family: var(--font-serif-kr), "Noto Serif KR", serif;
+  font-family: var(--font-display-kr), "Jua", sans-serif;
+  letter-spacing: -0.01em;
 }
 
-.luxury-divider {
-  height: 1px;
-  background: linear-gradient(
+.fun-divider {
+  height: 4px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
     90deg,
-    transparent,
-    var(--color-border-strong) 20%,
-    var(--color-gold) 50%,
-    var(--color-border-strong) 80%,
-    transparent
+    var(--color-accent) 0 10px,
+    var(--color-accent-light) 10px 20px
   );
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
-.gold-text {
-  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold) 55%, var(--color-gold-dark));
+.accent-text {
+  background: linear-gradient(135deg, var(--color-accent-light), var(--color-accent) 55%, var(--color-accent-dark));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -139,7 +144,7 @@ body {
 
 .card-surface {
   background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border);
   box-shadow: var(--shadow-card);
 }
 

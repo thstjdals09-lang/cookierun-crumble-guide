@@ -21,7 +21,7 @@ export default function PetsPage() {
 
       <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
         {PET_SYSTEM_NOTES.map((n) => (
-          <div key={n.title} className="card-surface rounded-2xl p-4">
+          <div key={n.title} className="card-surface rounded-3xl p-4">
             <h3 className="font-display mb-1.5 text-sm font-bold text-ink">{n.title}</h3>
             <p className="text-sm text-ink-soft">{n.body}</p>
           </div>

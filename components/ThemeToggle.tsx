@@ -5,7 +5,7 @@ import { useLayoutEffect, useState } from "react";
 const STORAGE_KEY = "crc-theme";
 
 function readInitialTheme(): "dark" | "light" {
-  if (typeof document === "undefined") return "dark";
+  if (typeof document === "undefined") return "light";
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     if (stored === "dark" || stored === "light") return stored;
@@ -13,7 +13,7 @@ function readInitialTheme(): "dark" | "light" {
     // localStorage unavailable (private mode, etc.)
   }
   const attr = document.documentElement.getAttribute("data-theme");
-  return attr === "light" ? "light" : "dark";
+  return attr === "dark" ? "dark" : "light";
 }
 
 export default function ThemeToggle() {
@@ -41,7 +41,7 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="테마 전환"
-      className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-semibold text-ink-soft transition-colors hover:border-gold hover:text-gold"
+      className="flex items-center gap-1.5 rounded-full border-2 border-border px-3 py-1.5 text-xs font-bold text-ink-soft transition-all hover:scale-105 hover:border-accent hover:text-accent-dark"
     >
       <span className="text-sm">{theme === "dark" ? "🌙" : "☀️"}</span>
       {theme === "dark" ? "다크" : "라이트"}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR, Noto_Serif_KR } from "next/font/google";
+import { Noto_Sans_KR, Jua } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -10,10 +10,10 @@ const notoSansKr = Noto_Sans_KR({
   weight: ["400", "500", "600", "700"],
 });
 
-const notoSerifKr = Noto_Serif_KR({
-  variable: "--font-noto-serif-kr",
+const jua = Jua({
+  variable: "--font-jua",
   subsets: ["latin"],
-  weight: ["600", "700", "900"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -28,9 +28,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ko"
-      data-theme="dark"
       suppressHydrationWarning
-      className={`${notoSansKr.variable} ${notoSerifKr.variable} h-full antialiased`}
+      className={`${notoSansKr.variable} ${jua.variable} h-full antialiased`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
