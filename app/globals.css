@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #0b0a08;
+  --color-bg-elevated: #17130f;
+  --color-bg-elevated-2: #201a13;
+  --color-ink: #f6ecd9;
+  --color-ink-soft: #b7a687;
+  --color-ink-faint: #7d715a;
+  --color-border: #37301f;
+  --color-border-strong: #5a4a28;
+
+  --color-gold: #d4af37;
+  --color-gold-light: #f4e2a8;
+  --color-gold-dark: #a97f24;
+  --color-gold-soft: rgba(212, 175, 55, 0.14);
+
+  --color-tier-s: #e8b84b;
+  --color-tier-a: #c98fef;
+  --color-tier-b: #6fa8ff;
+  --color-tier-c: #8a9199;
+
+  --color-grade-common: #8f8f8f;
+  --color-grade-uncommon: #5fa86b;
+  --color-grade-rare: #4c8bf5;
+  --color-grade-sr: #a45ee5;
+  --color-grade-ssr: #e8b84b;
+  --color-grade-tssr: #ff5f5f;
+
+  --color-syn-pierce: #e74c3c;
+  --color-syn-chain: #f39c12;
+  --color-syn-volley: #2ecc71;
+  --color-syn-speed: #4c8bf5;
+  --color-syn-rapid: #a45ee5;
+  --color-syn-range: #2fbfa8;
+  --color-syn-duration: #e0863a;
+
+  --shadow-card: 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+  --shadow-gold: 0 0 0 1px rgba(212, 175, 55, 0.35), 0 8px 24px -10px rgba(212, 175, 55, 0.25);
+}
+
+:root[data-theme="light"] {
+  --color-bg: #faf5e8;
+  --color-bg-elevated: #ffffff;
+  --color-bg-elevated-2: #f3ead2;
+  --color-ink: #2a2213;
+  --color-ink-soft: #6d5d3d;
+  --color-ink-faint: #97896a;
+  --color-border: #e6d7ac;
+  --color-border-strong: #d8c284;
+  --color-gold-soft: rgba(169, 127, 36, 0.12);
+  --shadow-card: 0 8px 24px -14px rgba(80, 60, 20, 0.25);
+}
+
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-elevated-2: var(--color-bg-elevated-2);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-soft: var(--color-gold-soft);
+
+  --color-tier-s: var(--color-tier-s);
+  --color-tier-a: var(--color-tier-a);
+  --color-tier-b: var(--color-tier-b);
+  --color-tier-c: var(--color-tier-c);
+
+  --color-grade-common: var(--color-grade-common);
+  --color-grade-uncommon: var(--color-grade-uncommon);
+  --color-grade-rare: var(--color-grade-rare);
+  --color-grade-sr: var(--color-grade-sr);
+  --color-grade-ssr: var(--color-grade-ssr);
+  --color-grade-tssr: var(--color-grade-tssr);
+
+  --color-syn-pierce: var(--color-syn-pierce);
+  --color-syn-chain: var(--color-syn-chain);
+  --color-syn-volley: var(--color-syn-volley);
+  --color-syn-speed: var(--color-syn-speed);
+  --color-syn-rapid: var(--color-syn-rapid);
+  --color-syn-range: var(--color-syn-range);
+  --color-syn-duration: var(--color-syn-duration);
+
+  --font-serif-kr: var(--font-noto-serif-kr);
+  --font-sans-kr: var(--font-noto-sans-kr);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans-kr), "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-gold-light);
+}
+
+.font-display {
+  font-family: var(--font-serif-kr), "Noto Serif KR", serif;
+}
+
+.luxury-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border-strong) 20%,
+    var(--color-gold) 50%,
+    var(--color-border-strong) 80%,
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold) 55%, var(--color-gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-surface {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}

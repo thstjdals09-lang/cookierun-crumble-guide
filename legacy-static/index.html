@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>쿠키런: 크럼블 공략 가이드</title>
+<meta name="description" content="쿠키런: 크럼블 쿠키 도감, 시너지 조합 계산기, 티어리스트, 스테이지/보스 공략 정보">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">🍪 크럼블 가이드</div>
+    <nav class="tabs">
+      <button class="active" data-view="dex">쿠키 도감</button>
+      <button data-view="calc">시너지 계산기</button>
+      <button data-view="tier">티어 리스트</button>
+      <button data-view="guide">공략</button>
+      <button data-view="synergy-info">시너지 시스템</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="disclaimer">
+    이 사이트는 나무위키, CrumbleHub, CrumbleHelper, crumbleguides.com 등 공개된 커뮤니티 정보를 정리한 팬메이드 비공식 가이드입니다. 실제 게임 밸런스 패치에 따라 정보가 달라질 수 있습니다.
+  </div>
+
+  <!-- 쿠키 도감 -->
+  <section id="view-dex" class="view active">
+    <h1 class="section-title">쿠키 도감</h1>
+    <p class="section-desc">전체 쿠키의 등급, 스킬, 시너지 정보를 확인하세요. <span id="dex-count"></span></p>
+    <div class="controls-row">
+      <input type="search" id="dex-search" placeholder="쿠키 이름 검색...">
+      <select id="dex-grade-filter">
+        <option value="all">전체 등급</option>
+      </select>
+    </div>
+    <div class="controls-row" id="dex-syn-filter"></div>
+    <div class="cookie-grid" id="dex-grid"></div>
+  </section>
+
+  <!-- 시너지 계산기 -->
+  <section id="view-calc" class="view">
+    <h1 class="section-title">시너지 조합 계산기</h1>
+    <p class="section-desc">쿠키를 최대 5명까지 선택해서 파티의 시너지 발동 현황을 확인해보세요.</p>
+    <div class="calc-layout">
+      <div>
+        <div class="controls-row">
+          <input type="search" id="picker-search" placeholder="쿠키 검색...">
+          <button class="chip-btn" id="clear-team">팀 초기화</button>
+        </div>
+        <div class="picker-grid" id="picker-grid"></div>
+      </div>
+      <div class="result-panel">
+        <h3 style="margin-top:0;">내 팀</h3>
+        <div class="slot-list" id="slot-list"></div>
+        <h3>시너지 발동 현황</h3>
+        <div id="syn-bars"></div>
+        <div id="syn-notes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 티어 리스트 -->
+  <section id="view-tier" class="view">
+    <h1 class="section-title">티어 리스트</h1>
+    <p class="section-desc">스테이지(PvE) 공략 기준 종합 티어입니다. 사이트마다 편차가 있어 여러 소스를 교차 참고했습니다.</p>
+    <div id="tier-list-wrap"></div>
+  </section>
+
+  <!-- 공략 -->
+  <section id="view-guide" class="view">
+    <h1 class="section-title">스테이지 · 보스 공략</h1>
+    <p class="section-desc">초반~중반 막히기 쉬운 구간과 보스전 공략 팁을 정리했습니다.</p>
+    <div id="guide-wrap"></div>
+  </section>
+
+  <!-- 시너지 시스템 설명 -->
+  <section id="view-synergy-info" class="view">
+    <h1 class="section-title">시너지 시스템이란?</h1>
+    <div id="synergy-info-wrap"></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  쿠키런: 크럼블 팬메이드 비공식 공략 사이트 · Devsisters와 무관합니다.
+</footer>
+
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="data-cookies.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
