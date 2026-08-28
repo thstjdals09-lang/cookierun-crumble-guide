@@ -6,7 +6,15 @@ import { GRADE_SHORT_LABEL, GRADE_COLOR_VAR } from "@/lib/constants";
 import { SYNERGIES } from "@/data/synergies";
 import CookieAvatar from "./CookieAvatar";
 
-const MAX_SLOTS = 5;
+// 공식 확인: 메인 스테이지 전투는 최대 12종의 쿠키를 편성할 수 있습니다
+// (데브시스터즈 공식 글로벌 출시 보도자료 기준. 스테이지 진행에 따라 슬롯이
+// 점진적으로 열리며, 12는 그 최대치입니다).
+const MAX_SLOTS = 12;
+// 시너지 발동 현황 막대는 팀 크기(12) 대신 이 값을 기준으로 채웁니다 — 같은
+// 시너지를 주는 쿠키는 중첩되지 않는다는 것이 커뮤니티 정설이라, 2~3명만
+// 넘어가도 이미 과다 편성이라는 뜻이라서 12를 기준으로 삼으면 막대가 항상
+// 텅 비어 보여 오히려 안 와닿습니다.
+const SYNERGY_BAR_SCALE = 3;
 
 export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
   const [query, setQuery] = useState("");
@@ -93,10 +101,10 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
 
       <div className="card-surface h-fit rounded-3xl p-4 lg:sticky lg:top-20">
         <h3 className="mb-2 font-display text-base font-bold text-ink">내 팀</h3>
-        <div className="mb-4 flex flex-col gap-1.5">
+        <div className="scrollbar-thin mb-4 flex max-h-64 flex-col gap-1.5 overflow-y-auto">
           {team.length === 0 ? (
             <p className="py-6 text-center text-xs text-ink-faint">
-              왼쪽에서 쿠키를 선택해 팀을 구성해보세요 (최대 {MAX_SLOTS}명).
+              왼쪽에서 쿠키를 선택해 팀을 구성해보세요 (스테이지 전투 기준 최대 {MAX_SLOTS}종).
             </p>
           ) : (
             team.map((c) => (
@@ -120,7 +128,7 @@ export default function SynergyCalculator({ cookies }: { cookies: Cookie[] }) {
         <div className="mb-3 flex flex-col gap-2">
           {SYNERGIES.map((s) => {
             const count = giveCount[s.id] ?? 0;
-            const pct = Math.min(100, (count / MAX_SLOTS) * 100);
+            const pct = Math.min(100, (count / SYNERGY_BAR_SCALE) * 100);
             return (
               <div key={s.id} className="flex items-center gap-2">
                 <span className="w-12 shrink-0 text-xs font-bold" style={{ color: s.color }}>

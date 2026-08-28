@@ -4,11 +4,12 @@ import { PATCH_NOTES } from "@/data/patchNotes";
 
 const SHORTCUTS = [
   { href: "/cookies", title: "쿠키 도감", desc: "전체 쿠키의 등급·역할·스킬·시너지를 한눈에" },
-  { href: "/synergy", title: "시너지 계산기", desc: "5슬롯 팀을 짜고 발동 시너지를 실시간 확인" },
+  { href: "/synergy", title: "시너지 계산기", desc: "12슬롯 팀을 짜고 발동 시너지를 실시간 확인" },
   { href: "/tier", title: "티어리스트", desc: "PVE 스테이지 / PVP 아레나 기준 티어" },
   { href: "/guide/pve", title: "PVE 공략", desc: "막히기 쉬운 스테이지·보스 벽 구간 공략" },
   { href: "/guide/pvp", title: "PVP 공략", desc: "아레나 조합과 방덱 대응 전략" },
   { href: "/pets", title: "펫 도감", desc: "펫 효과와 조합 활용법" },
+  { href: "/recommend", title: "추천 조합", desc: "내 컬렉션 기준 상황별 최적 조합 자동 분석" },
 ];
 
 export default function Home() {

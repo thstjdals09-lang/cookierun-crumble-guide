@@ -50,7 +50,12 @@ export interface Pet {
   nameKr: string;
   nameEn?: string;
   grade?: Grade;
-  effect: string;
+  /** 동행 효과 — 파티에 실제로 장착(최대 3마리)했을 때만 발동. */
+  companionEffect?: string;
+  /** 상시 효과 — 보유만 해도 모든 쿠키에 자동 적용. */
+  passiveEffect?: string;
+  /** 효과 유형이 companion/passive 중 어느 쪽인지 확인되지 않은 경우의 원문. */
+  unclassifiedEffect?: string;
   notes?: string;
   image?: string;
   imageSource?: string;

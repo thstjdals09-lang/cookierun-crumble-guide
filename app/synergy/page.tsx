@@ -13,7 +13,8 @@ export default function SynergyPage() {
     <div>
       <h1 className="font-display mb-1 text-2xl font-bold text-ink">시너지 조합 계산기</h1>
       <p className="mb-4 text-sm text-ink-soft">
-        쿠키를 최대 5명까지 선택해서 파티의 시너지 발동 현황을 확인해보세요.
+        쿠키를 최대 12종까지 선택해서 팀의 시너지 발동 현황을 확인해보세요. (메인 스테이지
+        전투는 최대 12종 편성이 공식 확인되었습니다 — 데브시스터즈 글로벌 출시 보도자료 기준)
       </p>
       <Disclaimer>
         시너지 give/receive 데이터는 공개된 커뮤니티 자료를 기반으로 하며, 모든 쿠키의 정보가 검증된

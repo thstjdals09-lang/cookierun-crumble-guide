@@ -15,6 +15,7 @@ const NAV_ITEMS = [
   { href: "/pets", label: "펫 도감" },
   { href: "/patch-notes", label: "패치노트" },
   { href: "/my-collection", label: "내 컬렉션" },
+  { href: "/recommend", label: "추천 조합" },
 ];
 
 export default function SiteHeader() {
