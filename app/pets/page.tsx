@@ -11,12 +11,14 @@ export default function PetsPage() {
     <div>
       <h1 className="font-display mb-1 text-2xl font-bold text-ink">펫 도감</h1>
       <p className="mb-4 text-sm text-ink-soft">
-        출시 시점 펫은 총 54종으로 알려져 있습니다. 조합에 펫을 포함한 추천 기능은 다음 단계(로그인
-        연동)에서 추가될 예정이며, 지금은 확인된 펫 효과를 정리해 제공합니다.
+        나무위키 도감에 등재된 54종에, 2026-08-27 패치로 추가된 &quot;배터리 멜로우&quot;까지 더해
+        총 {PETS.length}종의 이름과 이미지를 모았습니다. 조합에 펫을 포함한 추천 기능은 다음
+        단계(로그인 연동)에서 추가될 예정입니다.
       </p>
       <Disclaimer>
-        공개된 커뮤니티 정보를 기반으로 하며, 아래 목록은 54종 중 개별 효과가 확인된 일부입니다.
-        계속 보강 중입니다.
+        이름·이미지는 나무위키 도감 문서로 전부 확인했지만, 실제 게임 내 효과(스탯 보너스)는 6종만
+        커뮤니티 자료로 문서화되어 있어 나머지는 &quot;효과 정보 조사 중&quot;으로 표기했습니다.
+        등급 정보도 원본 문서에 나와 있지 않아 비워두었습니다.
       </Disclaimer>
 
       <div className="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">

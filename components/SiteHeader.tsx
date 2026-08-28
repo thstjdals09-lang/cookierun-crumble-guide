@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
+import LoginButton from "./LoginButton";
 
 const NAV_ITEMS = [
   { href: "/", label: "홈" },
@@ -13,6 +14,7 @@ const NAV_ITEMS = [
   { href: "/guide/pvp", label: "PVP 공략" },
   { href: "/pets", label: "펫 도감" },
   { href: "/patch-notes", label: "패치노트" },
+  { href: "/my-collection", label: "내 컬렉션" },
 ];
 
 export default function SiteHeader() {
@@ -33,7 +35,7 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-bold transition-all hover:scale-105 ${
+                className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-bold transition-all hover:scale-105 ${
                   active
                     ? "bg-accent text-white shadow-[var(--shadow-accent)]"
                     : "text-ink-soft hover:bg-accent-soft hover:text-accent-dark"
@@ -44,14 +46,15 @@ export default function SiteHeader() {
             );
           })}
           <span
-            className="ml-1 whitespace-nowrap rounded-full border border-dashed border-border px-3 py-1.5 text-sm font-semibold text-ink-faint"
-            title="로그인/커뮤니티 기능은 다음 단계에서 열려요"
+            className="ml-1 shrink-0 whitespace-nowrap rounded-full border border-dashed border-border px-3 py-1.5 text-sm font-semibold text-ink-faint"
+            title="커뮤니티 기능은 다음 단계에서 열려요"
           >
-            커뮤니티 (준비중)
+            커뮤니티 준비중
           </span>
         </nav>
 
-        <div className="shrink-0">
+        <div className="flex shrink-0 items-center gap-2">
+          <LoginButton />
           <ThemeToggle />
         </div>
       </div>

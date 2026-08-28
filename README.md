@@ -6,19 +6,17 @@ push하면 GitHub Actions가 자동으로 빌드해 GitHub Pages에 배포합니
 
 배포 주소: https://thstjdals09-lang.github.io/cookierun-crumble-guide/
 
-## 현재 범위 (Phase 1)
+## 현재 범위
 
-- 쿠키 도감 (검색/등급/시너지 필터)
-- 시너지 조합 계산기 (5슬롯 팀 빌더 + 시너지 발동 시각화)
-- 티어리스트 (PVE 스테이지 기준 / PVP 아레나 기준 분리)
-- PVE 공략 (스테이지·보스 벽 구간, 일일 던전, 임플란트 타워)
-- PVP 공략 (아레나 시스템, 메타 조합)
-- 펫 도감
-- 패치노트 타임라인
+**Phase 1** — 쿠키 도감(검색/등급/시너지 필터), 시너지 조합 계산기, 티어리스트(PVE/PVP 분리),
+PVE·PVP 공략, 펫 도감(55종), 패치노트 타임라인.
 
-로그인, 캐릭터 레벨/성급 저장, 조합·상성·펫 추천 엔진, 커뮤니티 기능은 다음 단계에서
-추가될 예정입니다 (Next.js 정적 export + Supabase 클라이언트 SDK로, 별도 서버 없이
-이 GitHub Pages 배포 파이프라인을 그대로 유지할 계획입니다).
+**Phase 2 (진행 중)** — Supabase(Google 로그인) + `내 컬렉션` 페이지에서 보유 쿠키의
+레벨·성급을 저장/조회. Next.js 정적 export를 유지한 채 브라우저에서 Supabase 클라이언트
+SDK로 직접 인증·DB 접근을 하므로 별도 서버 없이 GitHub Pages 배포 파이프라인 그대로 씁니다.
+DB는 `cookie_progress` 테이블 하나(사용자별 row-level security로 본인 데이터만 접근 가능).
+
+추천 엔진(조합·상성·펫 포함)과 커뮤니티 기능은 Phase 3으로 남아 있습니다.
 
 ## 개발
 
@@ -26,6 +24,17 @@ push하면 GitHub Actions가 자동으로 빌드해 GitHub Pages에 배포합니
 npm install
 npm run dev
 ```
+
+Supabase 연동을 로컬에서 테스트하려면 `.env.local`에 다음을 설정하세요 (git에는 커밋되지
+않습니다):
+
+```
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+
+GitHub Actions 배포 빌드는 같은 값을 저장소 Variables(`NEXT_PUBLIC_SUPABASE_URL`,
+`NEXT_PUBLIC_SUPABASE_ANON_KEY`)에서 읽습니다.
 
 ## 빌드 / 배포
 
